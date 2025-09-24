@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Circular Doubly Linked List Animation</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="appHeader">
+    <h1>Circular Doubly Linked List</h1>
+    <div class="subtitle">Interactive | Insert After | Delete | Step Visualization</div>
+  </header>
+
+  <main class="layout">
+    <!-- Left: Controls + Stage + Pseudocode -->
+    <section class="visualColumn">
+      <div id="ui" class="panel glass">
+        <label class="field">New Value
+          <input id="inputValue" type="number" placeholder="e.g. 42" />
+        </label>
+        <button id="btnInsertAfter" disabled>Insert After Selected</button>
+        <button id="btnDelete" disabled>Delete Selected</button>
+        <button id="btnReset">Reset</button>
+      </div>
+
+      <div id="stageWrapper" class="glass">
+        <div id="stage">
+          <svg id="arrowLayer"></svg>
+        </div>
+      </div>
+
+      <div id="legend" class="panel glass tiny">
+        <span class="chip normal">Node</span>
+        <span class="chip selected">Selected</span>
+        <span class="chip highlight">Inserted</span>
+        <span class="chip deleted">Deleted</span>
+        <span class="chip circular">Tail ↔ Head Arc</span>
+      </div>
+
+      <pre id="codePanel" class="panel glass code">Circular list ready. Select a node.</pre>
+    </section>
+
+    <!-- Right: Step-by-step panel -->
+    <aside class="stepsColumn">
+      <div class="panel glass stepsHeader">
+        <h2 class="stepsTitle">Operation Steps</h2>
+        <div class="stepsMeta" id="stepsOperationLabel">Idle</div>
+      </div>
+      <ol id="stepsList" class="stepsList panel glass">
+        <!-- Steps injected dynamically -->
+      </ol>
+      <div class="panel glass tipBox">
+        <strong>Tip:</strong> Click a node to select it, then Insert After or Delete. Steps will appear here one by one.
+      </div>
+    </aside>
+  </main>
+
+  <footer class="appFooter">
+    <span>CDLL Visualizer • Arrows update logically (not per-frame) for clarity. • You can adjust reveal speed in script.js (STEP_INTERVAL).</span>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
