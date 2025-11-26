@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singly Linked List Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Singly Linked List Visualizer</h1>
+        
+        <div class="controls">
+            <input type="number" id="inputValue" placeholder="Enter value" min="0" max="99">
+            <button id="btnInsertAtHead">Insert at Head</button>
+            <button id="btnInsertAtTail">Insert at Tail</button>
+            <button id="btnInsertAfter" disabled>Insert After Selected</button>
+            <button id="btnDelete" disabled>Delete Selected</button>
+            <button id="btnReverse">Reverse List</button>
+            <button id="btnReset">Reset</button>
+        </div>
+
+        <div class="visualization">
+            <div id="stage">
+                <svg id="arrowLayer"></svg>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="steps-container">
+                <h3>Operation Steps: <span id="stepsOperationLabel">Idle</span></h3>
+                <ol id="stepsList"></ol>
+            </div>
+            <pre id="codePanel">Singly Linked List initialized. Add nodes using the buttons above!</pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

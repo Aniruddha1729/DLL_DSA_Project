@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="appHeader">
+        <h1>⚡ Quick Sort Visualizer</h1>
+        <div class="subtitle">Interactive | Step-by-Step | Divide & Conquer Algorithm</div>
+    </header>
+
+    <main class="layout">
+        <!-- Left Column: Controls + Visualization -->
+        <section class="visualColumn">
+            <!-- Control Panel -->
+            <div class="panel glass controlPanel">
+                <div class="controlGroup">
+                    <label class="field">
+                        Array Values (comma separated)
+                        <input id="inputArray" type="text" placeholder="e.g., 64, 34, 25, 12, 22, 11, 90" />
+                    </label>
+                    <button id="btnSetArray" class="btn-primary">Set Array</button>
+                    <button id="btnRandomize" class="btn-secondary">Randomize</button>
+                </div>
+                
+                <div class="controlGroup">
+                    <label class="field">
+                        Animation Speed
+                        <input id="speedSlider" type="range" min="1" max="10" value="5" />
+                        <span id="speedLabel">Medium</span>
+                    </label>
+                </div>
+
+                <div class="controlGroup">
+                    <button id="btnSort" class="btn-success">Start Sorting</button>
+                    <button id="btnPause" class="btn-warning" disabled>Pause</button>
+                    <button id="btnReset" class="btn-danger">Reset</button>
+                </div>
+            </div>
+
+            <!-- Statistics Panel -->
+            <div class="panel glass statsPanel">
+                <div class="stat">
+                    <div class="statLabel">Comparisons</div>
+                    <div class="statValue" id="comparisons">0</div>
+                </div>
+                <div class="stat">
+                    <div class="statLabel">Swaps</div>
+                    <div class="statValue" id="swaps">0</div>
+                </div>
+                <div class="stat">
+                    <div class="statLabel">Array Access</div>
+                    <div class="statValue" id="arrayAccess">0</div>
+                </div>
+                <div class="stat">
+                    <div class="statLabel">Recursion Depth</div>
+                    <div class="statValue" id="recursionDepth">0</div>
+                </div>
+            </div>
+
+            <!-- Visualization Area -->
+            <div class="panel glass visualArea">
+                <div id="arrayContainer"></div>
+            </div>
+
+            <!-- Algorithm Info -->
+            <div class="panel glass algoInfo">
+                <h3>Algorithm Complexity</h3>
+                <div class="complexityGrid">
+                    <div class="complexity">
+                        <span class="complexityLabel">Best Case:</span>
+                        <span class="complexityValue">O(n log n)</span>
+                    </div>
+                    <div class="complexity">
+                        <span class="complexityLabel">Average Case:</span>
+                        <span class="complexityValue">O(n log n)</span>
+                    </div>
+                    <div class="complexity">
+                        <span class="complexityLabel">Worst Case:</span>
+                        <span class="complexityValue">O(n²)</span>
+                    </div>
+                    <div class="complexity">
+                        <span class="complexityLabel">Space:</span>
+                        <span class="complexityValue">O(log n)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps & Code -->
+        <aside class="stepsColumn">
+            <!-- Steps Panel -->
+            <div class="panel glass stepsHeader">
+                <h2 class="stepsTitle">Algorithm Steps</h2>
+                <div class="stepsMeta" id="stepsOperationLabel">Ready to sort</div>
+            </div>
+            
+            <ol id="stepsList" class="stepsList panel glass">
+                <!-- Steps will be dynamically added -->
+            </ol>
+
+            <!-- Code Panel -->
+            <div class="panel glass codePanel">
+                <h3>Pseudocode</h3>
+                <pre id="codeDisplay">function quickSort(arr, low, high):
+    if low < high:
+        // Partition the array
+        pivotIndex = partition(arr, low, high)
+        
+        // Recursively sort left part
+        quickSort(arr, low, pivotIndex - 1)
+        
+        // Recursively sort right part
+        quickSort(arr, pivotIndex + 1, high)
+
+function partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    
+    for j from low to high-1:
+        if arr[j] < pivot:
+            i++
+            swap(arr[i], arr[j])
+    
+    swap(arr[i+1], arr[high])
+    return i + 1</pre>
+            </div>
+
+            <!-- Info Box -->
+            <div class="panel glass tipBox">
+                <strong>💡 How Quick Sort Works:</strong>
+                <p>A divide-and-conquer algorithm that picks a pivot element and partitions the array around it. Elements smaller than pivot go left, larger go right. Then recursively sorts both partitions.</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="appFooter">
+        <span>Quick Sort Visualizer • Time Complexity: O(n log n) avg • Space Complexity: O(log n) • Unstable Sort</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

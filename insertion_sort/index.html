@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion Sort Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="appHeader">
+        <h1>🎯 Insertion Sort Visualizer</h1>
+        <div class="subtitle">Interactive | Step-by-Step | Algorithm Analysis</div>
+    </header>
+
+    <main class="layout">
+        <!-- Left Column: Controls + Visualization -->
+        <section class="visualColumn">
+            <!-- Control Panel -->
+            <div class="panel glass controlPanel">
+                <div class="controlGroup">
+                    <label class="field">
+                        Array Values (comma separated)
+                        <input id="inputArray" type="text" placeholder="e.g., 64, 34, 25, 12, 22, 11, 90" />
+                    </label>
+                    <button id="btnSetArray" class="btn-primary">Set Array</button>
+                    <button id="btnRandomize" class="btn-secondary">Randomize</button>
+                </div>
+                
+                <div class="controlGroup">
+                    <label class="field">
+                        Animation Speed
+                        <input id="speedSlider" type="range" min="1" max="10" value="5" />
+                        <span id="speedLabel">Medium</span>
+                    </label>
+                </div>
+
+                <div class="controlGroup">
+                    <button id="btnSort" class="btn-success">Start Sorting</button>
+                    <button id="btnPause" class="btn-warning" disabled>Pause</button>
+                    <button id="btnReset" class="btn-danger">Reset</button>
+                </div>
+            </div>
+
+            <!-- Statistics Panel -->
+            <div class="panel glass statsPanel">
+                <div class="stat">
+                    <div class="statLabel">Comparisons</div>
+                    <div class="statValue" id="comparisons">0</div>
+                </div>
+                <div class="stat">
+                    <div class="statLabel">Shifts</div>
+                    <div class="statValue" id="shifts">0</div>
+                </div>
+                <div class="stat">
+                    <div class="statLabel">Array Access</div>
+                    <div class="statValue" id="arrayAccess">0</div>
+                </div>
+                <div class="stat">
+                    <div class="statLabel">Current Key</div>
+                    <div class="statValue" id="currentKey">-</div>
+                </div>
+            </div>
+
+            <!-- Visualization Area -->
+            <div class="panel glass visualArea">
+                <div id="arrayContainer"></div>
+            </div>
+
+            <!-- Algorithm Info -->
+            <div class="panel glass algoInfo">
+                <h3>Algorithm Complexity</h3>
+                <div class="complexityGrid">
+                    <div class="complexity">
+                        <span class="complexityLabel">Best Case:</span>
+                        <span class="complexityValue">O(n)</span>
+                    </div>
+                    <div class="complexity">
+                        <span class="complexityLabel">Average Case:</span>
+                        <span class="complexityValue">O(n²)</span>
+                    </div>
+                    <div class="complexity">
+                        <span class="complexityLabel">Worst Case:</span>
+                        <span class="complexityValue">O(n²)</span>
+                    </div>
+                    <div class="complexity">
+                        <span class="complexityLabel">Space:</span>
+                        <span class="complexityValue">O(1)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Steps & Code -->
+        <aside class="stepsColumn">
+            <!-- Steps Panel -->
+            <div class="panel glass stepsHeader">
+                <h2 class="stepsTitle">Algorithm Steps</h2>
+                <div class="stepsMeta" id="stepsOperationLabel">Ready to sort</div>
+            </div>
+            
+            <ol id="stepsList" class="stepsList panel glass">
+                <!-- Steps will be dynamically added -->
+            </ol>
+
+            <!-- Code Panel -->
+            <div class="panel glass codePanel">
+                <h3>Pseudocode</h3>
+                <pre id="codeDisplay">function insertionSort(arr):
+    n = arr.length
+    for i from 1 to n-1:
+        key = arr[i]
+        j = i - 1
+        
+        // Shift elements greater than key
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j = j - 1
+        
+        // Insert key at correct position
+        arr[j + 1] = key
+    
+    return arr</pre>
+            </div>
+
+            <!-- Info Box -->
+            <div class="panel glass tipBox">
+                <strong>💡 How Insertion Sort Works:</strong>
+                <p>Builds the sorted array one element at a time by picking each element and inserting it into its correct position among the previously sorted elements. Like sorting playing cards in your hand!</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="appFooter">
+        <span>Insertion Sort Visualizer • Time Complexity: O(n²) • Space Complexity: O(1) • Stable Sort</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
